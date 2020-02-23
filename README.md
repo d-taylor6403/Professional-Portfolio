@@ -1,4 +1,4 @@
-# The professional Portfolio of Dannielle Taylor
+# The Professional Portfolio of Dannielle Taylor
 
 As a future front end web developer & designer, I have successfully been able to take my creativity from educational information mapping, course creation, cake design and training facilitation to begin forging a new career path that will allow me to highlight my passion for problem solving & design.
 
