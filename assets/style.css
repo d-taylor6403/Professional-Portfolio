@@ -1,0 +1,88 @@
+/* BOOTSTRAP CSS
+-------------------------------------------------- */
+.card-img-overlay {
+    background-image: linear-gradient(to bottom right, rgba(0, 245, 12, 0.25), rgba(0, 0, 0, 0.75));
+}
+
+.card-title {
+    font-size: 72pt;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 1);
+}
+
+.text-prim {
+    color: #385273;
+}
+
+.bg-prim {
+    background-color: #385273;
+}
+
+a[type=true] {
+    color: #42DCA3;
+}
+
+html, body {
+    background-color: none;
+}
+
+.card .card-content {
+    min-height: 200px;
+}
+
+/* MATERIALIZE CSS
+-------------------------------------------------- */
+
+/* left / right margin set from -16px to 0px */
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+/* reset submit button styling */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: none;
+}
+
+/* // adjust form text field with icons */
+input:not([type]).validate+label,
+input[type=text]:not(.browser-default).validate+label,
+input[type=password]:not(.browser-default).validate+label,
+input[type=email]:not(.browser-default).validate+label,
+input[type=url]:not(.browser-default).validate+label,
+input[type=time]:not(.browser-default).validate+label,
+input[type=date]:not(.browser-default).validate+label,
+input[type=datetime]:not(.browser-default).validate+label,
+input[type=datetime-local]:not(.browser-default).validate+label,
+input[type=tel]:not(.browser-default).validate+label,
+input[type=number]:not(.browser-default).validate+label,
+input[type=search]:not(.browser-default).validate+label,
+textarea.materialize-textarea.validate+label {
+    width: 100%;
+    padding-left: 15px;
+}
+
+/* adjusting bottom buttons of reveal cards */
+.card.sticky-action .card-action {
+    z-index: 2;
+    bottom: 0;
+    width: 100%;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    margin-right: 24px;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+    text-transform: uppercase;
+}
