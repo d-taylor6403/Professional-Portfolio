@@ -1,4 +1,8 @@
-
+/*!
+ * Materialize v1.0.0 (http://materializecss.com)
+ * Copyright 2014-2017 Materialize
+ * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
+ */
  .materialize-red {
     background-color: #e51c23 !important;
 }
@@ -2043,7 +2047,31 @@ a {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
-
+/* 2dp elevation modified*/
+/* .z-depth-1,
+nav,
+.card-panel,
+.card,
+.toast,
+.btn,
+.btn-large,
+.btn-small,
+.btn-floating,
+.dropdown-content,
+.collapsible,
+.sidenav {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.z-depth-1-half,
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover,
+.btn-floating:hover {
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+} */
+/* 6dp elevation modified*/
 .z-depth-2 {
     -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
@@ -2166,6 +2194,7 @@ video.responsive-video {
 .breadcrumb [class*="mdi-"],
 .breadcrumb i.material-icons {
     display: inline-block;
+    float: left;
     font-size: 24px;
 }
 .breadcrumb:before {
@@ -4815,7 +4844,7 @@ body.keyboard-focused .dropdown-content li:focus {
 .waves-circle {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    
+    -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
 }
 .waves-input-wrapper {
     border-radius: 0.2em;
@@ -4833,7 +4862,7 @@ body.keyboard-focused .dropdown-content li:focus {
     height: 2.5em;
     line-height: 2.5em;
     border-radius: 50%;
-    
+    -webkit-mask-image: none;
 }
 .waves-block {
     display: block;
@@ -5108,7 +5137,7 @@ body.keyboard-focused .dropdown-content li:focus {
     position: relative;
     -webkit-transition: opacity .4s;
     transition: opacity .4s;
-    
+    -webkit-backface-visibility: hidden;
 }
 .materialboxed:hover:not(.active) {
     opacity: .8;
@@ -5845,7 +5874,9 @@ textarea.materialize-textarea {
     opacity: 0;
     pointer-events: none;
 }
-
+[type="checkbox"] {
+    /* checkbox aspect */
+}
 [type="checkbox"] + span:not(.lever) {
     position: relative;
     padding-left: 35px;
@@ -6636,7 +6667,31 @@ input[type=range]::-ms-thumb {
     z-index: 997;
     display: none;
 }
-
+/*
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ */
+/**************************/
+/* STYLES FOR THE SPINNER */
+/**************************/
+/*
+ * Constants:
+ *      STROKEWIDTH = 3px
+ *      ARCSIZE     = 270 degrees (amount of circle the arc takes up)
+ *      ARCTIME     = 1333ms (time it takes to expand and contract arc)
+ *      ARCSTARTROT = 216 degrees (how much the start location of the arc
+ *                                should rotate each time, 216 gives us a
+ *                                5 pointed star shape (it's 360/5 * 3).
+ *                                For a 7 pointed star, we might do
+ *                                360/7 * 3 = 154.286)
+ *      CONTAINERWIDTH = 28px
+ *      SHRINK_TIME = 400ms
+ */
 .preloader-wrapper {
     display: inline-block;
     position: relative;
@@ -6652,7 +6707,7 @@ input[type=range]::-ms-thumb {
     height: 64px;
 }
 .preloader-wrapper.active {
-    
+    /* duration: 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */
     -webkit-animation: container-rotate 1568ms linear infinite;
     animation: container-rotate 1568ms linear infinite;
 }
@@ -6667,4 +6722,1124 @@ input[type=range]::-ms-thumb {
         transform: rotate(360deg);
     }
 }
-
+.spinner-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-color: #03a9f4;
+}
+.spinner-blue,
+.spinner-blue-only {
+    border-color: #4285f4;
+}
+.spinner-red,
+.spinner-red-only {
+    border-color: #db4437;
+}
+.spinner-yellow,
+.spinner-yellow-only {
+    border-color: #f4b400;
+}
+.spinner-green,
+.spinner-green-only {
+    border-color: #0f9d58;
+}
+/**
+ * IMPORTANT NOTE ABOUT CSS ANIMATION PROPERTIES (keanulee):
+ *
+ * iOS Safari (tested on iOS 8.1) does not handle animation-delay very well - it doesn't
+ * guarantee that the animation will start _exactly_ after that value. So we avoid using
+ * animation-delay and instead set custom keyframes for each color (as redundant as it
+ * seems).
+ *
+ * We write out each animation in full (instead of separating animation-name,
+ * animation-duration, etc.) because under the polyfill, Safari does not recognize those
+ * specific properties properly, treats them as -webkit-animation, and overrides the
+ * other animation rules. See https://github.com/Polymer/platform/issues/53.
+ */
+.active .spinner-layer.spinner-blue {
+    /* durations: 4 * ARCTIME */
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+.active .spinner-layer.spinner-red {
+    /* durations: 4 * ARCTIME */
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+.active .spinner-layer.spinner-yellow {
+    /* durations: 4 * ARCTIME */
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+.active .spinner-layer.spinner-green {
+    /* durations: 4 * ARCTIME */
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+.active .spinner-layer,
+.active .spinner-layer.spinner-blue-only,
+.active .spinner-layer.spinner-red-only,
+.active .spinner-layer.spinner-yellow-only,
+.active .spinner-layer.spinner-green-only {
+    /* durations: 4 * ARCTIME */
+    opacity: 1;
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+@-webkit-keyframes fill-unfill-rotate {
+    12.5% {
+        -webkit-transform: rotate(135deg);
+    }
+    /* 0.5 * ARCSIZE */
+    25% {
+        -webkit-transform: rotate(270deg);
+    }
+    /* 1   * ARCSIZE */
+    37.5% {
+        -webkit-transform: rotate(405deg);
+    }
+    /* 1.5 * ARCSIZE */
+    50% {
+        -webkit-transform: rotate(540deg);
+    }
+    /* 2   * ARCSIZE */
+    62.5% {
+        -webkit-transform: rotate(675deg);
+    }
+    /* 2.5 * ARCSIZE */
+    75% {
+        -webkit-transform: rotate(810deg);
+    }
+    /* 3   * ARCSIZE */
+    87.5% {
+        -webkit-transform: rotate(945deg);
+    }
+    /* 3.5 * ARCSIZE */
+    to {
+        -webkit-transform: rotate(1080deg);
+    }
+    /* 4   * ARCSIZE */
+}
+@keyframes fill-unfill-rotate {
+    12.5% {
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+    }
+    /* 0.5 * ARCSIZE */
+    25% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+    /* 1   * ARCSIZE */
+    37.5% {
+        -webkit-transform: rotate(405deg);
+        transform: rotate(405deg);
+    }
+    /* 1.5 * ARCSIZE */
+    50% {
+        -webkit-transform: rotate(540deg);
+        transform: rotate(540deg);
+    }
+    /* 2   * ARCSIZE */
+    62.5% {
+        -webkit-transform: rotate(675deg);
+        transform: rotate(675deg);
+    }
+    /* 2.5 * ARCSIZE */
+    75% {
+        -webkit-transform: rotate(810deg);
+        transform: rotate(810deg);
+    }
+    /* 3   * ARCSIZE */
+    87.5% {
+        -webkit-transform: rotate(945deg);
+        transform: rotate(945deg);
+    }
+    /* 3.5 * ARCSIZE */
+    to {
+        -webkit-transform: rotate(1080deg);
+        transform: rotate(1080deg);
+    }
+    /* 4   * ARCSIZE */
+}
+@-webkit-keyframes blue-fade-in-out {
+    from {
+        opacity: 1;
+    }
+    25% {
+        opacity: 1;
+    }
+    26% {
+        opacity: 0;
+    }
+    89% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes blue-fade-in-out {
+    from {
+        opacity: 1;
+    }
+    25% {
+        opacity: 1;
+    }
+    26% {
+        opacity: 0;
+    }
+    89% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes red-fade-in-out {
+    from {
+        opacity: 0;
+    }
+    15% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    51% {
+        opacity: 0;
+    }
+}
+@keyframes red-fade-in-out {
+    from {
+        opacity: 0;
+    }
+    15% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    51% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes yellow-fade-in-out {
+    from {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    76% {
+        opacity: 0;
+    }
+}
+@keyframes yellow-fade-in-out {
+    from {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    76% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes green-fade-in-out {
+    from {
+        opacity: 0;
+    }
+    65% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes green-fade-in-out {
+    from {
+        opacity: 0;
+    }
+    65% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/**
+ * Patch the gap that appear between the two adjacent div.circle-clipper while the
+ * spinner is rotating (appears on Chrome 38, Safari 7.1, and IE 11).
+ */
+.gap-patch {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 10%;
+    height: 100%;
+    overflow: hidden;
+    border-color: inherit;
+}
+.gap-patch .circle {
+    width: 1000%;
+    left: -450%;
+}
+.circle-clipper {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-color: inherit;
+}
+.circle-clipper .circle {
+    width: 200%;
+    height: 100%;
+    border-width: 3px;
+    /* STROKEWIDTH */
+    border-style: solid;
+    border-color: inherit;
+    border-bottom-color: transparent !important;
+    border-radius: 50%;
+    -webkit-animation: none;
+    animation: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.circle-clipper.left .circle {
+    left: 0;
+    border-right-color: transparent !important;
+    -webkit-transform: rotate(129deg);
+    transform: rotate(129deg);
+}
+.circle-clipper.right .circle {
+    left: -100%;
+    border-left-color: transparent !important;
+    -webkit-transform: rotate(-129deg);
+    transform: rotate(-129deg);
+}
+.active .circle-clipper.left .circle {
+    /* duration: ARCTIME */
+    -webkit-animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+.active .circle-clipper.right .circle {
+    /* duration: ARCTIME */
+    -webkit-animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+@-webkit-keyframes left-spin {
+    from {
+        -webkit-transform: rotate(130deg);
+    }
+    50% {
+        -webkit-transform: rotate(-5deg);
+    }
+    to {
+        -webkit-transform: rotate(130deg);
+    }
+}
+@keyframes left-spin {
+    from {
+        -webkit-transform: rotate(130deg);
+        transform: rotate(130deg);
+    }
+    50% {
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-5deg);
+    }
+    to {
+        -webkit-transform: rotate(130deg);
+        transform: rotate(130deg);
+    }
+}
+@-webkit-keyframes right-spin {
+    from {
+        -webkit-transform: rotate(-130deg);
+    }
+    50% {
+        -webkit-transform: rotate(5deg);
+    }
+    to {
+        -webkit-transform: rotate(-130deg);
+    }
+}
+@keyframes right-spin {
+    from {
+        -webkit-transform: rotate(-130deg);
+        transform: rotate(-130deg);
+    }
+    50% {
+        -webkit-transform: rotate(5deg);
+        transform: rotate(5deg);
+    }
+    to {
+        -webkit-transform: rotate(-130deg);
+        transform: rotate(-130deg);
+    }
+}
+#spinnerContainer.cooldown {
+    /* duration: SHRINK_TIME */
+    -webkit-animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+@-webkit-keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+/* .slider {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+.slider.fullscreen {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.slider.fullscreen ul.slides {
+    height: 100%;
+}
+.slider.fullscreen ul.indicators {
+    z-index: 2;
+    bottom: 30px;
+}
+.slider .slides {
+    background-color: #9e9e9e;
+    margin: 0;
+    height: 400px;
+}
+.slider .slides li {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: inherit;
+    overflow: hidden;
+}
+.slider .slides li img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.slider .slides li .caption {
+    color: #fff;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    opacity: 0;
+}
+.slider .slides li .caption p {
+    color: #e0e0e0;
+}
+.slider .slides li.active {
+    z-index: 2;
+}
+.slider .indicators {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+.slider .indicators .indicator-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    margin: 0 12px;
+    background-color: #e0e0e0;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    border-radius: 50%;
+}
+.slider .indicators .indicator-item.active {
+    background-color: #4CAF50;
+}
+.carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    -webkit-perspective: 500px;
+    perspective: 500px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+}
+.carousel.carousel-slider {
+    top: 0;
+    left: 0;
+}
+.carousel.carousel-slider .carousel-fixed-item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 1;
+}
+.carousel.carousel-slider .carousel-fixed-item.with-indicators {
+    bottom: 68px;
+}
+.carousel.carousel-slider .carousel-item {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.carousel.carousel-slider .carousel-item h2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+}
+.carousel.carousel-slider .carousel-item p {
+    font-size: 15px;
+}
+.carousel .carousel-item {
+    visibility: hidden;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.carousel .carousel-item > img {
+    width: 100%;
+}
+.carousel .indicators {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+.carousel .indicators .indicator-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 24px 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    border-radius: 50%;
+}
+.carousel .indicators .indicator-item.active {
+    background-color: #fff;
+}
+.carousel.scrolling .carousel-item .materialboxed,
+.carousel .carousel-item:not(.active) .materialboxed {
+    pointer-events: none;
+} */
+.tap-target-wrapper {
+    width: 800px;
+    height: 800px;
+    position: fixed;
+    z-index: 1000;
+    visibility: hidden;
+    -webkit-transition: visibility 0s .3s;
+    transition: visibility 0s .3s;
+}
+.tap-target-wrapper.open {
+    visibility: visible;
+    -webkit-transition: visibility 0s;
+    transition: visibility 0s;
+}
+.tap-target-wrapper.open .tap-target {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: .95;
+    -webkit-transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+.tap-target-wrapper.open .tap-target-wave::before {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.tap-target-wrapper.open .tap-target-wave::after {
+    visibility: visible;
+    -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
+    transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
+    transition: opacity .3s, transform .3s, visibility 0s 1s;
+    transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+}
+.tap-target {
+    position: absolute;
+    font-size: 1rem;
+    border-radius: 50%;
+    background-color: #ee6e73;
+    -webkit-box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+.tap-target-content {
+    position: relative;
+    display: table-cell;
+}
+.tap-target-wave {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 10001;
+}
+.tap-target-wave::before,
+.tap-target-wave::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+.tap-target-wave::before {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+}
+.tap-target-wave::after {
+    visibility: hidden;
+    -webkit-transition: opacity .3s, visibility 0s, -webkit-transform .3s;
+    transition: opacity .3s, visibility 0s, -webkit-transform .3s;
+    transition: opacity .3s, transform .3s, visibility 0s;
+    transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
+    z-index: -1;
+}
+.tap-target-origin {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 10002;
+    position: absolute !important;
+}
+.tap-target-origin:not(.btn):not(.btn-large):not(.btn-small),
+.tap-target-origin:not(.btn):not(.btn-large):not(.btn-small):hover {
+    background: none;
+}
+@media only screen and (max-width: 600px) {
+    .tap-target,
+    .tap-target-wrapper {
+        width: 600px;
+        height: 600px;
+    }
+}
+.pulse {
+    overflow: visible;
+    position: relative;
+}
+.pulse::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: inherit;
+    border-radius: inherit;
+    -webkit-transition: opacity .3s, -webkit-transform .3s;
+    transition: opacity .3s, -webkit-transform .3s;
+    transition: opacity .3s, transform .3s;
+    transition: opacity .3s, transform .3s, -webkit-transform .3s;
+    -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    z-index: -1;
+}
+@-webkit-keyframes pulse-animation {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+@keyframes pulse-animation {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+/* Modal */
+.datepicker-modal {
+    max-width: 325px;
+    min-width: 300px;
+    max-height: none;
+}
+.datepicker-container.modal-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0;
+}
+.datepicker-controls {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 280px;
+    margin: 0 auto;
+}
+.datepicker-controls .selects-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.datepicker-controls .select-wrapper input {
+    border-bottom: none;
+    text-align: center;
+    margin: 0;
+}
+.datepicker-controls .select-wrapper input:focus {
+    border-bottom: none;
+}
+.datepicker-controls .select-wrapper .caret {
+    display: none;
+}
+.datepicker-controls .select-year input {
+    width: 50px;
+}
+.datepicker-controls .select-month input {
+    width: 70px;
+}
+.month-prev,
+.month-next {
+    margin-top: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+/* Date Display */
+.datepicker-date-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: #03a9f4;
+    color: #fff;
+    padding: 20px 22px;
+    font-weight: 500;
+}
+.datepicker-date-display .year-text {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 25px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.datepicker-date-display .date-text {
+    display: block;
+    font-size: 2.8rem;
+    line-height: 47px;
+    font-weight: 500;
+}
+/* Calendar */
+.datepicker-calendar-container {
+    -webkit-box-flex: 2.5;
+    -webkit-flex: 2.5 auto;
+    -ms-flex: 2.5 auto;
+    flex: 2.5 auto;
+}
+.datepicker-table {
+    width: 280px;
+    font-size: 1rem;
+    margin: 0 auto;
+}
+.datepicker-table thead {
+    border-bottom: none;
+}
+.datepicker-table th {
+    padding: 10px 5px;
+    text-align: center;
+}
+.datepicker-table tr {
+    border: none;
+}
+.datepicker-table abbr {
+    text-decoration: none;
+    color: #999;
+}
+.datepicker-table td {
+    border-radius: 50%;
+    padding: 0;
+}
+.datepicker-table td.is-today {
+    color: #03a9f4;
+}
+.datepicker-table td.is-selected {
+    background-color: #03a9f4;
+    color: #fff;
+}
+.datepicker-table td.is-outside-current-month,
+.datepicker-table td.is-disabled {
+    color: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+.datepicker-day-button {
+    background-color: transparent;
+    border: none;
+    line-height: 38px;
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+    padding: 0 5px;
+    cursor: pointer;
+    color: inherit;
+}
+.datepicker-day-button:focus {
+    background-color: rgba(43, 161, 150, 0.25);
+}
+/* Footer */
+.datepicker-footer {
+    width: 280px;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+    color: #03a9f4;
+    padding: 0 1rem;
+}
+.datepicker-clear {
+    color: #F44336;
+}
+/* Media Queries */
+@media only screen and (min-width: 601px) {
+    .datepicker-modal {
+        max-width: 625px;
+    }
+    .datepicker-container.modal-content {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+    .datepicker-date-display {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 1 270px;
+        -ms-flex: 0 1 270px;
+        flex: 0 1 270px;
+    }
+    .datepicker-controls,
+    .datepicker-table,
+    .datepicker-footer {
+        width: 320px;
+    }
+    .datepicker-day-button {
+        line-height: 44px;
+    }
+}
+/* Timepicker Containers */
+.timepicker-modal {
+    max-width: 325px;
+    max-height: none;
+}
+.timepicker-container.modal-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0;
+}
+.text-primary {
+    color: white;
+}
+/* Clock Digital Display */
+.timepicker-digital-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: #03a9f4;
+    padding: 10px;
+    font-weight: 300;
+}
+.timepicker-text-container {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.timepicker-span-hours,
+.timepicker-span-minutes,
+.timepicker-span-am-pm div {
+    cursor: pointer;
+}
+.timepicker-span-hours {
+    margin-right: 3px;
+}
+.timepicker-span-minutes {
+    margin-left: 3px;
+}
+.timepicker-display-am-pm {
+    font-size: 1.3rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    font-weight: 400;
+}
+/* Analog Clock Display */
+.timepicker-analog-display {
+    -webkit-box-flex: 2.5;
+    -webkit-flex: 2.5 auto;
+    -ms-flex: 2.5 auto;
+    flex: 2.5 auto;
+}
+.timepicker-plate {
+    background-color: #eee;
+    border-radius: 50%;
+    width: 270px;
+    height: 270px;
+    overflow: visible;
+    position: relative;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.timepicker-canvas,
+.timepicker-dial {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.timepicker-minutes {
+    visibility: hidden;
+}
+.timepicker-tick {
+    border-radius: 50%;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 15px;
+}
+.timepicker-tick.active,
+.timepicker-tick:hover {
+    background-color: rgba(38, 166, 154, 0.25);
+}
+.timepicker-dial {
+    -webkit-transition: opacity 350ms, -webkit-transform 350ms;
+    transition: opacity 350ms, -webkit-transform 350ms;
+    transition: transform 350ms, opacity 350ms;
+    transition: transform 350ms, opacity 350ms, -webkit-transform 350ms;
+}
+.timepicker-dial-out {
+    opacity: 0;
+}
+.timepicker-dial-out.timepicker-hours {
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+.timepicker-dial-out.timepicker-minutes {
+    -webkit-transform: scale(0.8, 0.8);
+    transform: scale(0.8, 0.8);
+}
+.timepicker-canvas {
+    -webkit-transition: opacity 175ms;
+    transition: opacity 175ms;
+}
+.timepicker-canvas line {
+    stroke: #03a9f4;
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+.timepicker-canvas-out {
+    opacity: 0.25;
+}
+.timepicker-canvas-bearing {
+    stroke: none;
+    fill: #03a9f4;
+}
+.timepicker-canvas-bg {
+    stroke: none;
+    fill: #03a9f4;
+}
+/* Footer */
+.timepicker-footer {
+    margin: 0 auto;
+    padding: 5px 1rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.timepicker-clear {
+    color: #F44336;
+}
+.timepicker-close {
+    color: #03a9f4;
+}
+.timepicker-clear,
+.timepicker-close {
+    padding: 0 20px;
+}
+/* Media Queries */
+@media only screen and (min-width: 601px) {
+    .timepicker-modal {
+        max-width: 600px;
+    }
+    .timepicker-container.modal-content {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+    .timepicker-text-container {
+        top: 32%;
+    }
+    .timepicker-display-am-pm {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        text-align: center;
+        margin-top: 1.2rem;
+    }
+}
