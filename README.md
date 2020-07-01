@@ -27,10 +27,13 @@ This portfolio is organized into 7 sections each with the purpose of introducing
 
 These instructions will get you a copy of the application up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+#### Prerequisites
+* [Visual Studio](https://visualstudio.miscrosoft.com/)
+
+
 ### Prerequisites
 * Code editing [Visual Studio](https://visualstudio.microsoft.com/)
 
-```
 Open your Code editing software (example Visual Studio)
 
 Open the "Terminal" in studio
