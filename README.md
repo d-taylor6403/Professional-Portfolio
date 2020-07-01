@@ -28,9 +28,7 @@ This portfolio is organized into 7 sections each with the purpose of introducing
 These instructions will get you a copy of the application up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-
-What things you need: 
-* code editing [Visual Studio](https://visualstudio.microsoft.com/)
+* Code editing [Visual Studio](https://visualstudio.microsoft.com/)
 
 ```
 Open your Code editing software (example Visual Studio)
@@ -38,10 +36,5 @@ Open your Code editing software (example Visual Studio)
 Open the "Terminal" in studio
 perform a git clone git@github.com:d-taylor6403/Professional-Portfolio.git
 
-### Installing
 
-After having the files cloned into your Studio, I would perform a 
-* "Save Workspace AS" to have a workspace to come back to.
-* Next you will need to install your code's Dependencies
-    * This will capture all the items in your package.json file
 
